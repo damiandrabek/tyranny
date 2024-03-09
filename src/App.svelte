@@ -20,7 +20,7 @@
   <h1>TYRANÁTOR SELEKTOR®</h1>
 
   <label for="waving">
-    <input type="checkbox" id="waving">
+    <input type="checkbox" id="waving" bind:checked={waving}>
     waving
   </label>
 </header>
@@ -32,8 +32,8 @@
 </main>
 
 <footer class="water">
-  <Wave where="back" animation="big" />
-  <Wave where="middle" animation="tiny" />
-  <Wave where="front" animation="small"/>
+  <Wave where="back" animation="big" {waving}/>
+  <Wave where="middle" animation="tiny" {waving}/>
+  <Wave where="front" animation="small" {waving}/>
   <TwoMen/>
 </footer>

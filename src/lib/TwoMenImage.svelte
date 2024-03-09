@@ -4,8 +4,8 @@
 
 <style>
     .image {
-		width: 45vw;
-		height: 45vh;
+		width: 100vw;
+		height: 100vh;
 		position: absolute;
 		bottom: -1rem;
 		left: 2em;
