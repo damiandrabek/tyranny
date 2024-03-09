@@ -1,7 +1,7 @@
 <script>
     export let where;
-    export let animation;
-	export let waving;
+    export let waving;
+	export let animation;
 </script>
 
 <style>
@@ -95,6 +95,12 @@
 	}
 </style>
 
-<main>
-    <div class="wave {where} bounce__{animation}" class:waving={waving}></div>
-</main>
+{#if waving}
+	<div class="wave {where} bounce__{animation}"></div>
+{:else}
+	<div class="wave {where}"></div>
+{/if}
+
+<!-- <main>
+    <div class="wave {where} bounce__{animation}" class:waving></div>
+</main> -->

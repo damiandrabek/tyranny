@@ -4,7 +4,7 @@
   import TwoMen from "./lib/TwoMenImage.svelte"
 
   let chapterTitle = "Do not obey in advance";
-  let waving = false;
+  let waving = true;
 </script>
 
 <style>
