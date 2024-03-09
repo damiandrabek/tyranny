@@ -4,13 +4,12 @@
 
 <style>
     .image {
-		width: 100vw;
-		height: 40vh;
+		width: 45vw;
+		height: 45vh;
 		position: absolute;
 		bottom: -1rem;
-		right: -20px;
+		left: 2em;
 
 		background: url('../assets/twoMen.png') bottom left no-repeat;
-		background-size: 35%;
 	}
 </style>
