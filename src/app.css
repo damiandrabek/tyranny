@@ -33,6 +33,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-top: 0;
 }
 
 .card {
@@ -41,7 +42,7 @@ h1 {
 
 #app {
   max-width: 100vh;
-  margin: 0 auto;
+  margin: auto;
   text-align: center;
 }
 
@@ -64,10 +65,18 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.drink {
-  width: 30%;
+@media (min-width: 640px) {
+  main {
+    max-width: none;
+  }
+}
+
+.twoMen {
+  width: 100%;
+  max-width: 500px;
   height: auto;
+
   position: absolute;
-  left: 0;
-  bottom: 0;
+  bottom: -1rem;
+  left: 2em;
 }

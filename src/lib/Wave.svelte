@@ -12,7 +12,7 @@
 		bottom: -60px;
 		right: 0;
 
-		background: url('../assets/waves.png') bottom left repeat-x;
+		background: url('../public/waves.png') bottom left repeat-x;
 		background-size: 40%;
 
 		animation-duration: 2s;
