@@ -1,8 +1,6 @@
 <script>
   // components
   import Wave from "./lib/Wave.svelte";
-  import Gun from "./lib/Gun.svelte";
-  import Anchor from "./lib/Anchor.svelte";
 
   // props
   export let books;
@@ -13,11 +11,11 @@
 
   // functions
   const chooseBook = () => {
-    alert('choose')
-  }
-  const readBook = () => {
-    alert('read')
-  }
+    books = books.sort(() => 0.5 - Math.random());
+    console.log(chosenBook);
+  };
+  const readBook = () => {};
+  $: chosenBook = books[0].title.toUpperCase() + ", " + books[0].page;
 </script>
 
 <header>
@@ -41,15 +39,15 @@
   <h2>{chapterTitle}</h2>
 
   <section class="controls">
-    <img on:click={chooseBook} class="gun" src="../public/gun.png" alt="cool gun">
-    <img on:click={readBook} src="../public/anchor.png" alt="sweet ass anchor">
+    <img on:click={chooseBook} src="../public/gun.png" alt="cool gun" />
+    <img on:click={readBook} src="../public/anchor.png" alt="sweet ass anchor"/>
   </section>
 </main>
 
 <footer class="water">
   <Wave where="back" animation="big" {waving} />
   <Wave where="middle" animation="tiny" {waving} />
-  <img class="twoMen" src="../public/twoMen.png" alt="two men">
+  <img class="twoMen" src="../public/twoMen.png" alt="two men" />
   <Wave where="front" animation="small" {waving} />
 </footer>
 
