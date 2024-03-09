@@ -1,6 +1,7 @@
 <script>
   // components
   import Wave from "./lib/Wave.svelte";
+  import TwoMen from "./lib/TwoMenImage.svelte"
   let chapterTitle = "Do not obey in advance";
 </script>
 
@@ -17,20 +18,6 @@
 <footer class="water">
   <Wave where="back" animation="big" />
   <Wave where="middle" animation="tiny" />
-  <Wave where="front" animation="small" />
-  <!-- <img class="drink" src="./" alt="my drink"> -->
-  <div class="drinkiz"></div>
+  <Wave where="front" animation="small"/>
+  <TwoMen/>
 </footer>
-
-<style>
-  .drinkiz{
-		right: 0;
-    background: url('./assets/drink.png')repeat-x;
-		background-size: 100%;
-    width: 30%;
-    height: auto;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-  }
-</style>
