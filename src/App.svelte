@@ -41,8 +41,8 @@
   <h2>{chapterTitle}</h2>
 
   <section class="controls">
-    <!-- <img on:click={chooseBook} src="../public/gun.png" alt="cool gun">
-    <img on:click={readBook} src="../public/anchor.png" alt="sweet ass anchor"> -->
+    <img on:click={chooseBook} class="gun" src="../public/gun.png" alt="cool gun">
+    <img on:click={readBook} src="../public/anchor.png" alt="sweet ass anchor">
   </section>
 </main>
 

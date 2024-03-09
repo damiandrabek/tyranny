@@ -80,3 +80,29 @@ button:focus-visible {
   bottom: -1rem;
   left: 2em;
 }
+
+.controls {
+  position: absolute;
+  z-index: 3;
+
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.controls img {
+  cursor: pointer;
+  width: 100px;
+  margin: 0 1em;
+  transition: 0.05s all ease-in;
+}
+
+.controls img:hover {
+  transform: scale(1.1);
+}
+
+.controls img:active {
+  transform: scale(0.95);
+}
