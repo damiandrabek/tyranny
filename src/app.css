@@ -73,8 +73,9 @@ button:focus-visible {
 
 .twoMen {
   width: 100%;
-  max-width: 500px;
+  max-width: 30vw;
   height: auto;
+  max-height: 60vh;
 
   position: absolute;
   bottom: -1rem;
