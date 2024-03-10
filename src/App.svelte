@@ -45,10 +45,10 @@
 </main>
 
 <footer class="water">
-  <Wave where="back" animation="big" {waving} />
-  <Wave where="middle" animation="tiny" {waving} />
+  <Wave where="back" animation="big" waving={waving} />
+  <Wave where="middle" animation="tiny" waving={waving} />
   <img class="twoMen" src="../public/twoMen.png" alt="two men" />
-  <Wave where="front" animation="small" {waving} />
+  <Wave where="front" animation="small" waving={waving} />
 </footer>
 
 <style>
