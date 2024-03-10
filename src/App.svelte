@@ -14,8 +14,9 @@
     books = books.sort(() => 0.5 - Math.random());
     console.log(chosenBook);
   };
-  const readBook = () => {};
   $: chosenBook = books[0].title.toUpperCase() + ", " + books[0].page;
+  
+  const readBook = () => {};
 </script>
 
 <header>
