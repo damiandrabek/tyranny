@@ -20,7 +20,7 @@
 </script>
 
 <header>
-  <h1>TYRANÁTOR SELEKTOR®</h1>
+  <h1>TYRANNY SELECTOR®</h1>
 
   <label for="waving">
     <input type="checkbox" id="waving" bind:checked={waving} />
