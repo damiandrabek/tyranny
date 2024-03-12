@@ -8,10 +8,8 @@
   import Wave from "./lib/Wave.svelte";
   import TheChapter from "./lib/TheChapter.svelte";
 
-  // props
-  export let chapters;
-
   // vars
+  let chapters = localStorage.getStuff("unreadChapters");
   let waving = true;
   let animationEnded = false;
   let audio = new Audio("../public/gunshot.wav");
@@ -19,8 +17,9 @@
 
   // randomise (choose random chapter)
   const chooseChapter = () => {
+    chapters = localStorage.getStuff('unreadChapters');
     shuffleArray(chapters);
-
+    console.log(chapters)
     animationEnded = false;
     chapterHasBeenRead = false;
 
@@ -35,7 +34,16 @@
 
   // move chosenChapter from unread to read chapters
   const readChapter = () => {
+    let readChapters = localStorage.getStuff("readChapters");
+    let unreadChapters = localStorage.getStuff("unreadChapters");
+
     chapterHasBeenRead = true;
+
+    readChapters.push(chosenChapter);
+    unreadChapters = unreadChapters.filter((item) => item.id !== chosenChapter.id);
+
+    localStorage.setStuff("readChapters", readChapters);
+    localStorage.setStuff("unreadChapters", unreadChapters);
   };
 
   const progress = tweened(0, {
@@ -79,5 +87,6 @@
     top: 1em;
     left: 2em;
     font-size: 1em;
+    font-size: large;
   }
 </style>
