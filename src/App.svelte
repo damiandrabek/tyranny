@@ -1,36 +1,43 @@
 <script>
-  // components
-  import Wave from "./lib/Wave.svelte";
+  // imports
   import { tweened } from "svelte/motion";
   import { cubicOut, circOut } from "svelte/easing";
+  import { shuffleArray } from "./functions";
+
+  // components
+  import Wave from "./lib/Wave.svelte";
+  import TheChapter from "./lib/TheChapter.svelte";
 
   // props
   export let books;
 
   // vars
-  let chapterTitle = "Do not obey in advance";
   let waving = true;
+  let audio = new Audio("../public/gunshot.wav");
 
   // randomise (choose random book)
   const chooseBook = () => {
-    books = books.sort(() => 0.5 - Math.random());
-    progress.set(Math.random());
+    shuffleArray(books);
+
+    let index = $progress === 0 ? books.length : 0;
+
+    progress.set(index).then(() => {
+      audio.play();
+    });
   };
-  $: chosenBook = books[0].title.toUpperCase() + ", " + books[0].page;
+  $: chosenBook = books[Math.floor($progress)] || books[0];
 
   // move chosenBook from unread to read books
   const readBook = () => {};
 
   const progress = tweened(0, {
-    duration: 2000,
+    duration: 2500,
     easing: circOut,
   });
 </script>
 
 <header>
   <h1>TYRANNY SELECTOR®</h1>
-
-  <progress value={$progress} />
 
   <label for="waving">
     <input type="checkbox" id="waving" bind:checked={waving} />
@@ -39,8 +46,7 @@
 </header>
 
 <main>
-  <p>{$progress}</p>
-  <h2>{chosenBook}</h2>
+  <TheChapter {chosenBook} />
 
   <section class="controls">
     <img on:click={chooseBook} src="../public/gun.png" alt="cool gun" />
