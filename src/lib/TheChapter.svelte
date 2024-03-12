@@ -1,12 +1,13 @@
 <script>
-  export let chosenBook;
+  export let chosenChapter;
   export let animationEnded;
+  export let bookHasBeenRead;
 </script>
 
-<h2 class="animate__animated" class:animate__tada={animationEnded}>
-  <span>{chosenBook.title}</span>
-  {#if chosenBook.page}
-    <small>{chosenBook.page}</small>
+<h2 class="animate__animated" class:animate__tada={animationEnded} class:animate__backOutDown={bookHasBeenRead}>
+  <span>{chosenChapter.title}</span>
+  {#if chosenChapter.page}
+    <small>{chosenChapter.page}</small>
   {/if}
 </h2>
 

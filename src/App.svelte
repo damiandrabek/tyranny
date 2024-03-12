@@ -15,11 +15,14 @@
   let waving = true;
   let animationEnded = false;
   let audio = new Audio("../public/gunshot.wav");
+  let bookHasBeenRead = false;
 
   // randomise (choose random book)
   const chooseBook = () => {
     shuffleArray(books);
+
     animationEnded = false;
+    bookHasBeenRead = false;
 
     let index = $progress === 0 ? books.length : 0;
 
@@ -28,10 +31,12 @@
       audio.play();
     });
   };
-  $: chosenBook = books[Math.floor($progress)] || books[0];
+  $: chosenChapter = books[Math.floor($progress)] || books[0];
 
-  // move chosenBook from unread to read books
-  const readBook = () => {};
+  // move chosenChapter from unread to read books
+  const readBook = () => {
+    bookHasBeenRead = true;
+  };
 
   const progress = tweened(0, {
     duration: 2500,
@@ -49,7 +54,7 @@
 </header>
 
 <main>
-  <TheChapter {chosenBook} {animationEnded}/>
+  <TheChapter {chosenChapter} {animationEnded} {bookHasBeenRead} />
 
   <section class="controls">
     <img on:click={chooseBook} src="../public/gun.png" alt="cool gun" />
@@ -72,10 +77,7 @@
   label {
     position: absolute;
     top: 1em;
-    left: 1em;
+    left: 2em;
     font-size: 1em;
-  }
-  progress {
-    width: 90%;
   }
 </style>
