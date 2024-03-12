@@ -1,10 +1,10 @@
 <script>
   export let chosenChapter;
   export let animationEnded;
-  export let bookHasBeenRead;
+  export let chapterHasBeenRead;
 </script>
 
-<h2 class="animate__animated" class:animate__tada={animationEnded} class:animate__backOutDown={bookHasBeenRead}>
+<h2 class="animate__animated" class:animate__tada={animationEnded} class:animate__backOutDown={chapterHasBeenRead}>
   <span>{chosenChapter.title}</span>
   {#if chosenChapter.page}
     <small>{chosenChapter.page}</small>

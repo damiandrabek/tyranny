@@ -9,33 +9,33 @@
   import TheChapter from "./lib/TheChapter.svelte";
 
   // props
-  export let books;
+  export let chapters;
 
   // vars
   let waving = true;
   let animationEnded = false;
   let audio = new Audio("../public/gunshot.wav");
-  let bookHasBeenRead = false;
+  let chapterHasBeenRead = false;
 
-  // randomise (choose random book)
-  const chooseBook = () => {
-    shuffleArray(books);
+  // randomise (choose random chapter)
+  const chooseChapter = () => {
+    shuffleArray(chapters);
 
     animationEnded = false;
-    bookHasBeenRead = false;
+    chapterHasBeenRead = false;
 
-    let index = $progress === 0 ? books.length : 0;
+    let index = $progress === 0 ? chapters.length : 0;
 
     progress.set(index).then(() => {
       animationEnded = true;
       audio.play();
     });
   };
-  $: chosenChapter = books[Math.floor($progress)] || books[0];
+  $: chosenChapter = chapters[Math.floor($progress)] || chapters[0];
 
-  // move chosenChapter from unread to read books
-  const readBook = () => {
-    bookHasBeenRead = true;
+  // move chosenChapter from unread to read chapters
+  const readChapter = () => {
+    chapterHasBeenRead = true;
   };
 
   const progress = tweened(0, {
@@ -54,12 +54,12 @@
 </header>
 
 <main>
-  <TheChapter {chosenChapter} {animationEnded} {bookHasBeenRead} />
+  <TheChapter {chosenChapter} {animationEnded} {chapterHasBeenRead} />
 
   <section class="controls">
-    <img on:click={chooseBook} src="../public/gun.png" alt="cool gun" />
+    <img on:click={chooseChapter} src="../public/gun.png" alt="cool gun" />
     <img
-      on:click={readBook}
+      on:click={readChapter}
       src="../public/anchor.png"
       alt="sweet ass anchor"
     />
