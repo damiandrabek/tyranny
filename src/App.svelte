@@ -13,15 +13,18 @@
 
   // vars
   let waving = true;
+  let animationEnded = false;
   let audio = new Audio("../public/gunshot.wav");
 
   // randomise (choose random book)
   const chooseBook = () => {
     shuffleArray(books);
+    animationEnded = false;
 
     let index = $progress === 0 ? books.length : 0;
 
     progress.set(index).then(() => {
+      animationEnded = true;
       audio.play();
     });
   };
@@ -46,7 +49,7 @@
 </header>
 
 <main>
-  <TheChapter {chosenBook} />
+  <TheChapter {chosenBook} {animationEnded}/>
 
   <section class="controls">
     <img on:click={chooseBook} src="../public/gun.png" alt="cool gun" />
