@@ -2,9 +2,21 @@
   export let chosenChapter;
   export let animationEnded;
   export let chapterHasBeenRead;
+
+  // console.log(h2);
+  // if (chapterHasBeenRead == true) {
+  //   setTimeout(() => {
+  //     h2.style.display = "none";
+  //   }, 5000);
+  // }
 </script>
 
-<h2 class="animate__animated" class:animate__tada={animationEnded} class:animate__backOutDown={chapterHasBeenRead}>
+<h2
+  class="animate__animated"
+  class:animate__tada={animationEnded}
+  class:animate__backOutDown={chapterHasBeenRead}
+  class:noneDisplay={chapterHasBeenRead}
+>
   <span>{chosenChapter.title}</span>
   {#if chosenChapter.page}
     <small>{chosenChapter.page}</small>
@@ -39,5 +51,8 @@
   h2 small::before {
     text-transform: lowercase;
     font-size: 0.75em;
+  }
+  .noneDisplay {
+    /* display: none; */
   }
 </style>
