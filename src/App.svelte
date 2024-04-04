@@ -5,8 +5,8 @@
   import { shuffleArray } from "./functions";
 
   // components
-  import Wave from "./lib/Wave.svelte";
-  import TheChapter from "./lib/TheChapter.svelte";
+  import Wave from "./components/Wave.svelte";
+  import TheChapter from "./components/TheChapter.svelte";
 
   // vars
   let chapters = localStorage.getStuff("unreadChapters");
